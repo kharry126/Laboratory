@@ -42,6 +42,10 @@ export default {
   data () {
   	return {
   	  heads: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  	  heads2: [{
+  	  	key: 'order',
+  	  	label: '序号'
+  	  }],
   	  data: [{
 
   	  }]
@@ -66,11 +70,17 @@ export default {
   padding: 0px;
   line-height: 8px;
 }
-.template .tabelhead {
-  
+.template .tabelhead,
+.template .tabelhead table {
+  width: 100%;
 }
 
 .headTh { 
   width: calc(100% / 9);
+  background-color: rgba(81, 130, 228, 0.6);
+  font-size: 12px;
+  font-weight: 400px;
+  padding: 6px;
+  color: white;
 }
 </style>

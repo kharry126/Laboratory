@@ -8,13 +8,19 @@
       <p>2.日期字段需包含年月日（如2016/1/1），或年月日时分秒。（如2016/1/1 00:00:00）</p>
     </div>
     <div class="tabelhead">
-      <table>
+      <table cellspacing="1">
         <tr>
-          <th v-for="index in heads" class="headTh">
-            第{{index}}列
+          <th v-for="(head, index) in tableHeads" class="headTh">
+            第{{index + 1}}列
           </th>
         </tr>
       </table>
+    </div>
+    <div class="tableData">
+      <el-table stripe border :data="data" :resizable="false">
+        <el-table-column v-for="(head, index) in tableHeads" :key="index" :prop="head.key" :label="head.label">
+        </el-table-column>
+      </el-table>
     </div>
   </div>
 </template>
@@ -42,13 +48,65 @@ export default {
   data () {
   	return {
   	  heads: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  	  heads2: [{
+  	  tableHeads: [{
   	  	key: 'order',
   	  	label: '序号'
-  	  }],
+  	  }, {
+        key: 'user',
+        label: '拜访人'
+      }, {
+        key: 'number',
+        label: '员工编号'
+      }, {
+        key: 'department',
+        label: '部门'
+      }, {
+        key: 'work',
+        label: '职位'
+      }, {
+        key: 'date',
+        label: '拜访日期'
+      }, {
+        key: 'time',
+        label: '拜访时间'
+      }, {
+        key: 'type',
+        label: '客户类型'
+      }, {
+        key: 'state',
+        label: '进展'
+      }],
   	  data: [{
-
-  	  }]
+        order: 1,
+        user: '乔歆然',
+        number: '600001',
+        department: '销售一部',
+        work: '销售总监',
+        date: '2016/8/8',
+        time: '11:23',
+        type: '互联网',
+        state: '初次拜访'
+  	  }, {
+        order: 2,
+        user: '丘慧美',
+        number: '600002',
+        department: '销售一部',
+        work: '销售总监',
+        date: '2016/8/8',
+        time: '14:43',
+        type: '电商',
+        state: '初次拜访'
+      }, {
+        order: 3,
+        user: '束怜烟',
+        number: '600003',
+        department: '销售一部',
+        work: '销售总监',
+        date: '2016/8/8',
+        time: '11:23',
+        type: '商贸',
+        state: '初次拜访'
+      }]
   	}
   }
 }
@@ -75,12 +133,42 @@ export default {
   width: 100%;
 }
 
-.headTh { 
+.template .tableData {
+  margin-top: 10px;
+}
+
+.template .tableData .el-table__header th {
+  border-right: 1px solid rgb(223,228,231);
+  padding: 0px;
+}
+
+.template .el-table__body .el-table__row td {
+  padding: 0px;
+}
+.template .el-table__body .el-table__row td .cell {
+  padding: 8px 20px;
+  line-height: 16px;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.template .tableData .el-table__header th .cell {
+  background-color: #ECEFF1;
+  color: rgba(10,18,32,.64);
+  padding: 8px 20px;
+  line-height: 16px;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.template .headTh { 
   width: calc(100% / 9);
   background-color: rgba(81, 130, 228, 0.6);
   font-size: 12px;
   font-weight: 400px;
-  padding: 6px;
+  padding: 8px;
   color: white;
 }
 </style>

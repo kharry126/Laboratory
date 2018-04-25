@@ -6,7 +6,7 @@
       <el-step title="数据表设置"></el-step>
     </el-steps>
 
-    <el-button style="margin-top: 12px;position: absolute" @click="next">下一步</el-button>
+    <el-button style="display:none;margin-top: 12px;position: absolute" @click="next">下一步</el-button>
   </div>
 </template>
 <script>

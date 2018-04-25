@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div class="stepContent">
     <sx-excel-upload></sx-excel-upload>
   </div>
 </template>
 
-<style type="text/css">
-
+<style scoped>
+.stepContent {
+  background: white;
+  padding: 20px;
+}
 </style>
 
 <script>

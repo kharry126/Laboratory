@@ -10,7 +10,7 @@
     <div class="tabelhead">
       <table cellspacing="1">
         <tr>
-          <th v-for="(head, index) in tableHeads" class="headTh">
+          <th v-for="(head, index) in tableHeads" class="headTh" :key="index">
             第{{index + 1}}列
           </th>
         </tr>
@@ -18,7 +18,7 @@
     </div>
     <div class="tableData">
       <el-table stripe border :data="data" :resizable="false">
-        <el-table-column v-for="(head, index) in tableHeads" :key="index" :prop="head.key" :label="head.label">
+        <el-table-column v-for="(head, index) in tableHeads" :key="index" :prop="head.key" :label="head.label" :resizable="false">
         </el-table-column>
       </el-table>
     </div>
@@ -124,9 +124,7 @@ export default {
 .template .tip {
   color: rgba(10,18,32,.46);
   font-size: 12px;
-  margin: 0px;
-  padding: 0px;
-  line-height: 8px;
+  line-height: 20px;
 }
 .template .tabelhead,
 .template .tabelhead table {

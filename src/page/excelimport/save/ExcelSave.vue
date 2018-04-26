@@ -1,7 +1,5 @@
 <template>
-  <div class="stepContent">
-    <sx-excel-upload :store="store" v-show="store.isUpload()"></sx-excel-upload>
-    <sx-excel-preview :store="store" v-show="store.isPreview()"></sx-excel-preview>
+  <div>
   </div>
 </template>
 
@@ -19,17 +17,11 @@
  *   无
  * @since 2018-02-17
  */
-import SxExcelUpload from './upload/ExcelUpload'
-import SxExcelPreview from './preview/ExcelPreview'
-
 export default {
-  name: 'SxExcelContent',
-  components: {SxExcelUpload, SxExcelPreview},
-  props: ['store']
+  name: 'SxDemo'
 }
 </script>
-<style scoped>
-.stepContent {
-  background: white;
-}
+
+<style type="text/css">
+
 </style>

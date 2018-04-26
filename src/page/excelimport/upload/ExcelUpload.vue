@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="excel_upload">
     <div class="uploadBorder">
       <div>
         <p class="link">
-          <a href="#">点击上传该文件</a>
+          <a @click="store.next()">点击上传该文件</a>
           <span>或者拖拽上传</span>
         </p>
         <p>
@@ -37,6 +37,7 @@ import SxExcelTemplate from './ExcelTemplate'
 export default {
   name: 'SxExcelUpload',
   components: {SxExcelTemplate},
+  props: ['store'],
   data () {
   	return {
   	  uploadType: '支持Excel和CSV文件（单个Excel最大100M，CSV最大200M）',
@@ -47,6 +48,9 @@ export default {
 </script>
 
 <style>
+.excel_upload {
+  padding: 20px
+}
 .uploadBorder {
   border: 2px dashed rgb(82, 135, 226);
   height: 170px;
@@ -73,6 +77,7 @@ export default {
 .uploadBorder .link a {
   color: rgb(81, 130, 228);
   text-decoration-color: rgb(81, 130, 228);
+  cursor: pointer;
 }
 
 </style>

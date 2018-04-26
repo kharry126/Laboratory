@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-steps :active="active" :space="180" finish-status="success"  align-center>
+    <el-steps :active="store.active" :space="180" finish-status="success"  align-center>
       <el-step title="上传文件"></el-step>
       <el-step title="预览数据"></el-step>
-      <el-step title="数据表设置"></el-step>
+      <el-step title="保存"></el-step>
     </el-steps>
 
     <el-button style="display:none;margin-top: 12px;position: absolute" @click="next">下一步</el-button>
@@ -17,6 +17,7 @@ Vue.use(Step)
 Vue.use(Button)
 export default {
   name: 'SxStepView',
+  props: ['store'],
   data () {
     return {
       active: 0
@@ -51,6 +52,7 @@ export default {
   border-color: #5182E4;
   color: white;
   opacity: 0.3;
+  margin-top: 1px;
 }
 
 .is-process .el-step__icon.is-text {
@@ -61,11 +63,14 @@ export default {
   opacity: 1;
   background-color: #67c23a;
   border-color: #67c23a;
+  margin-top: 0px;
 }
 
 .el-step__icon-inner {
   font-size: 12px;
   font-weight: 400;
+  height: 12px;
+  width: 12px;
 }
 
 .el-step__title {

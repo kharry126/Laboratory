@@ -1,6 +1,6 @@
 class ExcelStore {
     constructor() {
-        this.active = 1;
+        this.active = 2;
         this.maxIndex = 2;
     }
 
@@ -30,6 +30,13 @@ class ExcelStore {
             return true;
         }
         return false;
+    }
+
+    isSave() {
+        if (this.active === 2) {
+            return true;
+        }
+        return false
     }
 }
 

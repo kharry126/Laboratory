@@ -1,5 +1,21 @@
 <template>
-  <div>
+  <div class="excel_save">
+    <div class="tables">
+      <p>工作表</p>
+      <el-menu default-active="1">
+        <el-menu-item  v-for="(table, index) in tables" :key="index" :index="index">
+          <template slot="title">
+            <i class="el-icon-document"></i>
+            <span :tid="table.id">{{ table.name }}</span>
+          </template>
+        </el-menu-item>
+      </el-menu>
+    </div>
+    <div class="content">
+      <sx-excel-save-content>
+
+      </sx-excel-save-content>
+    </div>
   </div>
 </template>
 
@@ -17,11 +33,78 @@
  *   无
  * @since 2018-02-17
  */
+import Vue from 'vue'
+import {Menu, MenuItem} from 'element-ui'
+import SxExcelSaveContent from './ExcelSaveContent'
+Vue.use(Menu)
+Vue.use(MenuItem)
 export default {
-  name: 'SxDemo'
+  name: 'SxExcelSave',
+  components: {
+    SxExcelSaveContent
+  },
+  data () {
+    return {
+      tables: [{
+        name: '工作表-Sheet1',
+        id: 'temp1'
+      }, {
+        name: '工作表-Sheet2',
+        id: 'temp2'  
+      }, {
+        name: '工作表-Sheet3',
+        id: 'temp3'  
+      }]
+    }
+  }
 }
 </script>
 
 <style type="text/css">
 
+.excel_save .tables {
+  width: 220px;
+  border-right: 1px solid rgb(209, 209, 209);
+}
+
+.excel_save .tables > p {
+  padding: 20px 0 9px 20px;
+}
+
+.excel_save .tables .el-menu {
+  border-right: none;
+  padding-bottom: 20px;
+}
+
+.excel_save .tables .el-menu-item {
+  padding-right: 24px;
+  padding-left: 24px!important;
+  height: 32px;
+  line-height: 28px;
+  color: rgba(10,18,32,.64);
+  font-size: 12px;
+  font-weight: 400px;
+}
+
+.excel_save .tables .el-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.excel_save .tables .el-menu-item.is-active {
+  color: rgba(10,18,32,.87);
+  background-color: rgba(0,0,0,.06);
+}
+
+.excel_save .tables .el-menu-item i {
+  color: rgb(9, 156, 89);
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 0px;
+}
+
+.excel_save .content {
+  width: calc(100% - 225px);
+  display: inline;
+}
 </style>

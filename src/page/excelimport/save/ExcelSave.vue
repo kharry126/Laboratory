@@ -3,7 +3,7 @@
     <div class="tables">
       <p>工作表</p>
       <el-menu default-active="1">
-        <el-menu-item  v-for="(table, index) in tables" :key="index" :index="index">
+        <el-menu-item  v-for="(table, index) in tables" :key="index" :index="index + ''">
           <template slot="title">
             <i class="el-icon-document"></i>
             <span :tid="table.id">{{ table.name }}</span>
@@ -62,9 +62,15 @@ export default {
 
 <style type="text/css">
 
+.excel_save {
+  height: 400px;
+  position: relative;
+}
+
 .excel_save .tables {
   width: 220px;
   border-right: 1px solid rgb(209, 209, 209);
+  height: 100%;
 }
 
 .excel_save .tables > p {
@@ -105,6 +111,9 @@ export default {
 
 .excel_save .content {
   width: calc(100% - 225px);
-  display: inline;
+  position: absolute;
+  top: 0px;
+  left: 225px;
+  height: 100%;
 }
 </style>

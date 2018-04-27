@@ -2,16 +2,24 @@
   <div class="excel_upload">
     <div class="uploadBorder">
       <div>
-        <p class="link">
-          <a @click="store.next()">点击上传该文件</a>
-          <span>或者拖拽上传</span>
-        </p>
-        <p>
-          {{uploadType}}
-        </p>
-        <p>
-          {{fileLimit}}
-        </p>
+        <el-upload
+          class="upload-demo"
+          drag
+          action="https://jsonplaceholder.typicode.com/posts/"
+          multiple>
+          <i class="el-icon-upload"></i>
+          <div class="el-upload__text">
+            <p class="link"><em>点击上传文件</em> 或者拖拽上传</p>
+            <p>
+              {{uploadType}}
+            </p>
+             <p>
+              {{fileLimit}}
+            </p>
+          </div>
+          <div class="el-upload__tip" slot="tip">
+          </div>
+        </el-upload>
       </div>
     </div>
     <sx-excel-template>
@@ -43,6 +51,11 @@ export default {
   	  uploadType: '支持Excel和CSV文件（单个Excel最大100M，CSV最大200M）',
       fileLimit: '最多5个文件批量上传，默认识别第一个sheet文件'
   	}
+  },
+  methods: {
+    uploadFile () {
+
+    }
   }
 }
 </script>
@@ -51,6 +64,20 @@ export default {
 .excel_upload {
   padding: 20px
 }
+
+.excel_upload .el-upload {
+  display: block;
+}
+
+.excel_upload .el-upload .el-upload-dragger {
+  border: none;
+  margin: auto;
+  display: table;
+  width: 99%;
+  height: 160px;
+  margin-top: 5px;
+}
+
 .uploadBorder {
   border: 2px dashed rgb(82, 135, 226);
   height: 170px;
@@ -59,6 +86,17 @@ export default {
   display: table-cell;
   vertical-align: middle;
   margin-bottom: 10px;
+}
+
+.excel_upload .el-upload .el-icon-upload {
+  display: none;
+}
+
+.excel_upload .el-upload .el-upload__text {
+  font-size: 12px;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .uploadBorder p {
@@ -74,10 +112,11 @@ export default {
   margin-bottom: 10px;
 }
 
-.uploadBorder .link a {
+.uploadBorder .link em {
   color: rgb(81, 130, 228);
   text-decoration-color: rgb(81, 130, 228);
   cursor: pointer;
+  text-decoration:underline
 }
 
 </style>

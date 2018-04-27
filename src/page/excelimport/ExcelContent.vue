@@ -1,8 +1,9 @@
 <template>
   <div class="stepContent">
-    <sx-excel-upload :store="store" v-show="store.isUpload()"></sx-excel-upload>
+    <sx-excel-upload :store="store" v-show="store.isUpload()" v-if="store.isShow('upload')"></sx-excel-upload>
     <sx-excel-preview :store="store" v-show="store.isPreview()"></sx-excel-preview>
     <sx-excel-save :store="store" v-show="store.isSave()"></sx-excel-save>
+    <sx-excel-footer :store="store"></sx-excel-footer>
   </div>
 </template>
 
@@ -23,10 +24,11 @@
 import SxExcelUpload from './upload/ExcelUpload'
 import SxExcelPreview from './preview/ExcelPreview'
 import SxExcelSave from './save/ExcelSave'
+import SxExcelFooter from './common/ExcelFooter'
 
 export default {
   name: 'SxExcelContent',
-  components: {SxExcelUpload, SxExcelPreview, SxExcelSave},
+  components: {SxExcelUpload, SxExcelPreview, SxExcelSave, SxExcelFooter},
   props: ['store']
 }
 </script>

@@ -19,6 +19,7 @@ export default {
   },
   created () {
     this.store = new SxExcelStore();
+    this.store.setProcess(['upload', 'preview', 'savetable']);
   }
 }
 </script>

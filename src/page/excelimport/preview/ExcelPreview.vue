@@ -5,7 +5,7 @@
         <span class="tiptxt">{{ headindex + 1 }}</span> 行，如不符合预期，可点击将你需要的数据行指定为表头和设置表头类型.</p>
       <p class="tip">表头前的数据，将不会保留</p>
     </div>
-    <sx-excel-table></sx-excel-table>
+    <sx-excel-table :store="store" :tableHeads="tableHeads" :tableDatas="tableDatas" :tabs="tabs"></sx-excel-table>
     <sx-excel-footer :store="store"></sx-excel-footer>
   </div>
 </template>
@@ -34,7 +34,22 @@ export default {
   },
   data () {
     return {
-      headindex: 0
+      headindex: 0,
+      tabs: [],
+      tableHeads: [],
+      tableDatas: []
+    }
+  },
+  created () {
+    let result = this.store.loadPreviewData();
+    debugger
+    this.tabs = result.tabs;
+    this.tableHeads = result.tableHeads;
+    this.tableDatas = result.tableDatas;
+  },
+  methods: {
+    loadPreview (tabs, datas) {
+      
     }
   }
 }

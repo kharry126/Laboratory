@@ -5,7 +5,8 @@
         <el-upload
           class="upload-demo"
           drag
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="/api/uploadfile/fileupload"
+          :on-success="successUpload"
           multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">
@@ -24,6 +25,7 @@
     </div>
     <sx-excel-template>
     </sx-excel-template>
+    <sx-excel-sheet-dialog ref="dialog" :sheets="sheets" :store="store"></sx-excel-sheet-dialog>
   </div>
 </template>
 
@@ -42,19 +44,30 @@
  * @since 2018-02-17
  */
 import SxExcelTemplate from './ExcelTemplate'
+import SxExcelSheetDialog from './ExcelSheetDialog'
 export default {
   name: 'SxExcelUpload',
-  components: {SxExcelTemplate},
+  components: {
+    SxExcelTemplate,
+    SxExcelSheetDialog
+  },
   props: ['store'],
   data () {
   	return {
   	  uploadType: '支持Excel和CSV文件（单个Excel最大100M，CSV最大200M）',
-      fileLimit: '最多5个文件批量上传，默认识别第一个sheet文件'
+      fileLimit: '最多5个文件批量上传，默认识别第一个sheet文件',
+      sheets: []
   	}
   },
   methods: {
-    uploadFile () {
-
+    successUpload (response, file, fileList) {
+      this.store.setFileName(response, file);
+      this.sheets = this.store.getSheets();
+      if (sheets.length > 1) {
+        this.$refs.dialog.show();
+      } else {
+        this.store.next();
+      }
     }
   }
 }

@@ -1,10 +1,15 @@
 <template>
-  <div class="excel_footer">
+  <div class="excel_footer" v-show = "store.isShowFooter()">
     <div class="footer_buttons">
-      <el-button type="primary" size="small" class="footer_button" @click="next()">
+      <el-button type="primary" size="small" class="footer_button" v-if="!store.isFinish()" @click="next()">
         下一步
       </el-button>
-      <el-button type="text" size="small" class="footer_button" @click="prev()">上一步</el-button>
+      <el-button type="success" size="small" class="footer_button" v-if="store.isFinish()" @click="finish()">
+        完&nbsp;&nbsp;&nbsp;&nbsp;成
+      </el-button>
+      <el-button type="text" size="small" class="footer_button" @click="prev()">
+        上一步
+      </el-button>
     </div>
   </div>
 </template>
@@ -36,6 +41,10 @@ export default {
 
     prev () {
       this.store.prev();
+    },
+
+    finish () {
+      this.store.finish();
     }
   }
 }
@@ -64,5 +73,6 @@ export default {
   float: right;
   margin: 8px;
   padding: 9px 20px;
+  max-width:78px;
 }
 </style>

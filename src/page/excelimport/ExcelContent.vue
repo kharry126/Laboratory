@@ -1,8 +1,8 @@
 <template>
   <div class="stepContent">
-    <sx-excel-upload :store="store" v-show="store.isUpload()" v-if="store.isShow('upload')"></sx-excel-upload>
-    <sx-excel-preview :store="store" v-show="store.isPreview()"></sx-excel-preview>
-    <sx-excel-save :store="store" v-show="store.isSave()"></sx-excel-save>
+    <sx-excel-upload :store="store" v-if="store.isShow('upload')"></sx-excel-upload>
+    <sx-excel-preview :store="store" v-if="store.isShow('preview')"></sx-excel-preview>
+    <sx-excel-save :store="store" v-if="store.isShow('savetable')"></sx-excel-save>
     <sx-excel-footer :store="store"></sx-excel-footer>
   </div>
 </template>

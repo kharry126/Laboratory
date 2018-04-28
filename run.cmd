@@ -13,5 +13,4 @@ npm install
 
 :runDev
 npm run dev
-
 :end

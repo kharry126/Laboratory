@@ -2,7 +2,7 @@
   <div class="exel_savecontent">
     <el-form label-width="80px" class="excel_form" :rules="rules">
       <el-form-item label="别名">
-        <el-input size="mini" name="name"></el-input>
+        <el-input v-model="activeTab.name" size="mini" name="name"></el-input>
       </el-form-item>
       <el-form-item label="路径">
         <label>数据源</label>
@@ -10,7 +10,7 @@
         <a>全部应用</a>
       </el-form-item>
       <el-form-item label="备注">
-        <el-input type="textarea" size="small" resize="false"></el-input>
+        <el-input  v-model="activeTab.remark" type="textarea" size="small" resize="false"></el-input>
       </el-form-item>
     </el-form>
   </div>
@@ -38,6 +38,7 @@ Vue.use(FormItem)
 Vue.use(Input)
 export default {
   name: 'SxExcelSaveContent',
+  props: ['activeTab'],
   components: {
     SxExcelFooter
   },
@@ -48,6 +49,10 @@ export default {
           { required: true, message: '请选择活动资源', trigger: 'change' }
         ]
       }
+    }
+  },
+  updated: {
+    activeTab (tab) {
     }
   }
 }

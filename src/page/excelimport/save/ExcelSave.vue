@@ -2,8 +2,8 @@
   <div class="excel_save">
     <div class="tables">
       <p>工作表</p>
-      <el-menu default-active="1">
-        <el-menu-item  v-for="(table, index) in tables" :key="index" :index="index + ''">
+      <el-menu default-active="0" @select="onSelect">
+        <el-menu-item  v-for="(table, index) in tabs" :key="index" :index="index + ''">
           <template slot="title">
             <i class="el-icon-document"></i>
             <span :tid="table.id">{{ table.name }}</span>
@@ -12,8 +12,7 @@
       </el-menu>
     </div>
     <div class="content">
-      <sx-excel-save-content>
-
+      <sx-excel-save-content :activeTab="activeTab">
       </sx-excel-save-content>
     </div>
   </div>
@@ -40,21 +39,25 @@ Vue.use(Menu)
 Vue.use(MenuItem)
 export default {
   name: 'SxExcelSave',
+  props: ['store'],
   components: {
     SxExcelSaveContent
   },
   data () {
     return {
-      tables: [{
-        name: '工作表-Sheet1',
-        id: 'temp1'
-      }, {
-        name: '工作表-Sheet2',
-        id: 'temp2'  
-      }, {
-        name: '工作表-Sheet3',
-        id: 'temp3'  
-      }]
+      tabs: [],
+      activeTab: {}
+    }
+  },
+  created () {
+    this.tabs = this.store.tabs;
+    if (this.tabs) {
+      this.activeTab = this.tabs[0];
+    }
+  },
+  methods: {
+    onSelect (index) {
+      this.activeTab = this.tabs[index];
     }
   }
 }

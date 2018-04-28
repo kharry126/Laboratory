@@ -1,11 +1,8 @@
 <template>
   <div>
-    <el-steps :active="store.active" :space="180" finish-status="success"  align-center>
-      <el-step title="上传文件"></el-step>
-      <el-step title="预览数据"></el-step>
-      <el-step title="保存"></el-step>
+    <el-steps :active="store.active" :space="180" finish-status="success"  align-center :style="getWidth()">
+      <el-step v-for="item in store.process" :key="item.id" :title="item.title"></el-step>
     </el-steps>
-
     <el-button style="display:none;margin-top: 12px;position: absolute" @click="next">下一步</el-button>
   </div>
 </template>
@@ -28,6 +25,10 @@ export default {
       if (this.active++ > 2) {
         this.active = 0;
       }
+    },
+    getWidth () {
+      let width = this.store.process.length * 180 + 60;
+      return 'width:' + width + 'px';
     }
   }
 }

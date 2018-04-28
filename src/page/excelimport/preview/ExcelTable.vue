@@ -2,8 +2,8 @@
   <div class="excel_table">
     <el-tabs v-model="activeName" type="card">
       <el-tab-pane :label="tab.name" :name="tab.id" v-for="tab in tabs" :key='tab.id' class="pane">
-        <el-table border stripe :data="datas[tab.id]" height="260">
-          <el-table-column v-for="head in tabelHeads[tab.id]" :key="head.id" :prop="head.name" :label="head.name">
+        <el-table border stripe :data="tableDatas[tab.id]" height="260">
+          <el-table-column v-for="head in tableHeads[tab.id]" :key="head.id" :prop="head.name" :label="head.name">
           </el-table-column>
         </el-table>
       </el-tab-pane>
@@ -32,48 +32,14 @@ Vue.use(Table)
 Vue.use(TableColumn)
 export default {
   name: 'SxExcelTable',
-  props: ['store'],
+  props: ['store', 'tabs', 'tableHeads', 'tableDatas'],
   data () {
     return {
-      tabs: [{
-        name: '工作表-Sheet1',
-        id: 'temp1'
-      }, {
-        name: '工作表-Sheet2',
-        id: 'temp2'
-      }, {
-        name: '工作表-Sheet3',
-        id: 'temp3'
-      }],
-      tabelHeads: {},
-      datas: {},
       activeName: null
     }
   },
   created () {
     this.activeName = this.tabs[0].id;
-    for (var i in this.tabs) {
-      let tab = this.tabs[i];
-      let data = [];
-      this.tabelHeads[tab.id] = [{
-        name: 'order',
-        label: '序号'
-      }, {
-        name: 'name',
-        label: '姓名',
-      }, {
-        name: 'number',
-        label: '编号',
-      }]
-      for (var i = 0; i < 100; i++) {
-        data.push({
-          order: i,
-          name: '张三',
-          number: '001002' + i
-        })
-      }
-      this.datas[tab.id] = data;
-    }
   }
 }
 </script>

@@ -7,6 +7,7 @@
           drag
           action="/api/uploadfile/fileupload"
           :on-success="successUpload"
+          :on-error="successUpload"
           multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">
@@ -62,7 +63,7 @@ export default {
   methods: {
     successUpload (response, file, fileList) {
       this.store.setFileName(response, file);
-      this.sheets = this.store.getSheets();
+      let sheets = this.store.getSheets();
       if (sheets.length > 1) {
         this.$refs.dialog.show();
       } else {

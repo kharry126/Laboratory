@@ -82,7 +82,36 @@ class ExcelStore {
     }
 
     getSheets () {
-        return ['tab1', 'tab2', 'tab3', 'tab4', 'tab5', 'tab6', 'tab7']
+        let sheets =  [{
+                name: 'Sheet1',
+                id: 'tab1'
+            }, {
+                name: 'Sheet2',
+                id: 'tab2'
+            }, {
+                name: 'Sheet3',
+                id: 'tab3',
+                empty: true
+             }, {
+                name: 'Sheet4',
+                id: 'tab4',
+                empty: true
+            }, {
+                name: 'Sheet5',
+                id: 'tab5'
+            }, {
+                name: 'Sheet6',
+                id: 'tab6',
+                empty: true
+            }, {
+                name: 'Sheet7',
+                id: 'tab7',
+                empty: true
+            }, {
+                name: 'Sheet8',
+                id: 'tab8'
+            }]
+        return sheets;
     }
     
     isUpload() {
@@ -176,7 +205,7 @@ class ExcelStore {
             for (let j = 0; j < 100; j++) {
                 data.push({
                     temp1: j,
-                    temp2: '张三',
+                    temp2: '张三' + tab.id,
                     temp3: '001002' + i
                 })
             }

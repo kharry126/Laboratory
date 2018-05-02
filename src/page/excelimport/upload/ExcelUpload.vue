@@ -63,6 +63,7 @@ export default {
     successUpload (response, file, fileList) {
       this.store.setFileName(response, file);
       this.sheets = this.store.getSheets();
+      this.store.next();
       if (sheets.length > 1) {
         this.$refs.dialog.show();
       } else {

@@ -15,12 +15,12 @@ echo Unpack Node...
 cd ..
 
 :checkNodeModules
-set PATH=tools\node-v7.10.0-win-x64;%PATH%
 if exist "node_modules" goto runDev
 echo init modules
 Tools\node-v7.10.0-win-x64\npm.cmd install
 
 :runDev
+set PATH=tools\node-v7.10.0-win-x64;%PATH%
 Tools\node-v7.10.0-win-x64\npm.cmd run dev
 :end
 pause

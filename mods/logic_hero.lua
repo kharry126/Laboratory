@@ -112,71 +112,60 @@ function from_big_fish () --ftag:action
 
 end
 
-
--- изменение маны я ярости
 function change_manarage (event) --ftag:action
 
   local max_rage = Logic.cur_lu_item( "rage", "limit" )
   local rage = Logic.cur_lu_item( "rage", "count" )
   local sk_level = Logic.hero_lu_skill("blood_lust")
   local rage_min = 0
-  if sk_level > 0 then
-    rage_min = math.floor(skill_power("blood_lust", 1, sk_level-1)*max_rage/100)
+  if sk_level>0 then
+    rage_min = math.floor(skill_power("blood_lust",1,sk_level-1)*max_rage/100)
   end
 
   if event == "" then
-    local diff = Game.HSP_difficulty()
-    local par_mana = Game.Config("difficulty_k/manarage")
-    local par_rage = Game.Config("difficulty_k/manarage")
-    par_mana = string.gsub(par_mana, "|", ",")
-    par_rage = string.gsub(par_rage, "|", ",")
-    local k_mana_dif = tonumber(text_dec(par_mana, diff+1))
-    local k_rage_dif = tonumber(text_dec(par_rage, diff+1))
-    local max_mana = Logic.cur_lu_item( "mana", "limit" )
-    local mana = Logic.cur_lu_item( "mana", "count" )
-    local mana_add = 5   --сколько давать за период в % от максимума
-    local rage_sub = 5   --сколько отнимать за период в % от максимума
-  -- бонус от навыка и предметов, в % на который домножим mana_add
-    local skill_bonus = Logic.hero_lu_item("sp_mana_map_prc", "count") -- бонус от предметов
-    local skill_lvl_count = tonumber(Logic.hero_lu_skill("meditation"))
-    if skill_lvl_count > 0 then -- пока не взято умение Медитация, прибавок от умений нет
-      skill_lvl_count = skill_lvl_count + tonumber(Logic.hero_lu_skill("wizdom")) + tonumber(Logic.hero_lu_skill("linguistic")) + tonumber(Logic.hero_lu_skill("order")) + tonumber(Logic.hero_lu_skill("alchemist")) + tonumber(Logic.hero_lu_skill("dist")) + tonumber(Logic.hero_lu_skill("rune")) + tonumber(Logic.hero_lu_skill("transmutate")) + tonumber(Logic.hero_lu_skill("chaos")) + tonumber(Logic.hero_lu_skill("accuracy")) + tonumber(Logic.hero_lu_skill("initiation")) + tonumber(Logic.hero_lu_skill("concentration")) + tonumber(Logic.hero_lu_skill("creator")) + tonumber(Logic.hero_lu_skill("hi_magic")) + tonumber(Logic.hero_lu_skill("destroyer"))
-      skill_bonus = skill_bonus + skill_power("meditation", 1) + skill_power("meditation", 3)*skill_lvl_count
-    end
 
-    if rage > rage_min then
-      local tmp_rage = max_rage*(rage_sub/100)*(1-Logic.hero_lu_item("sp_rage_map", "count")/100)/k_rage_dif
-      if tmp_rage < 1 then
-        tmp_rage = 1
-      end
-      rage = rage - tmp_rage
-      if rage < 0 then
-        rage = 0
-      end
-    end
-    --if mana < max_mana then
-      local tmp_mana = (max_mana*(mana_add/100)*(1 + skill_bonus/100) + Logic.hero_lu_item("sp_mana_map_val", "count"))*k_mana_dif
-      if rage == 0 then
-        tmp_mana = tmp_mana * Game.Config("mana_gain_k_when_no_rage")
-      end
-      if tmp_mana < 1 then
-        tmp_mana = 1
-      end
-      local new_mana = mana + tmp_mana
-      if new_mana > max_mana then
-        new_mana = max_mana
-      end
-      Logic.cur_lu_item( "mana", "count", new_mana)
-      Game.ClearEffect( "mana" )
-    --end
+  local diff=Game.HSP_difficulty()
+  local par_mana=Game.Config("difficulty_k/manarage")
+  local par_rage=Game.Config("difficulty_k/manarage")
+  par_mana=string.gsub(par_mana, "|", ",")
+  par_rage=string.gsub(par_rage, "|", ",")
+  local k_mana_dif = tonumber(text_dec(par_mana,diff+1))
+  local k_rage_dif = tonumber(text_dec(par_rage,diff+1))
+  local max_mana = Logic.cur_lu_item( "mana", "limit" )
+  local mana = Logic.cur_lu_item( "mana", "count" )
+  local mana_add=5   --сколько давать за период в % от максимума
+  local rage_sub=5   --сколько отнимать за период в % от максимума
+  -- бонус от навыка и предметов, в % на который домножим mana_add
+  local wiz_bonus=skill_power("meditation",1)+ Logic.hero_lu_item("sp_mana_map_prc","count")
+  --sp_mana_map_prc
+
+  if rage > rage_min then
+    local tmp_rage = max_rage*(rage_sub/100)*(1-Logic.hero_lu_item("sp_rage_map","count")/100)/k_rage_dif
+    if tmp_rage<1 then tmp_rage=1 end
+    rage = rage - tmp_rage
+    if rage<0 then rage = 0 end
+  else
   end
+  --if mana < max_mana then
+    local tmp_mana = max_mana*(mana_add/100)*(1+wiz_bonus/100)*k_mana_dif
+    if rage == 0 then tmp_mana = tmp_mana * Game.Config("mana_gain_k_when_no_rage") end
+    if tmp_mana < 1 then tmp_mana = 1 end
+    mana = mana + tmp_mana
+    Logic.cur_lu_item( "mana", "count", mana )
+    Game.ClearEffect( "mana" )
+  --end
+
+  end
+
   Logic.cur_lu_item( "rage", "count", math.max(rage, rage_min) )
   Game.ClearEffect( "rage" )
 
   return false
+
 end
 
 function decrease_rage () --ftag:action
+
   local rage = Logic.cur_lu_item( "rage", "count" )
   if rage > 0 then
     rage = rage - 1
@@ -185,32 +174,28 @@ function decrease_rage () --ftag:action
   end
 
   return false
+
 end
 
 function increase_mana () --ftag:action
-  local mana_add = 1   --сколько давать за период
-  local time_period = 10  -- на сколько периодов делится минута
+
+    local mana_add=1   --сколько давать за период
+    local time_period=10  -- на сколько периодов делится минута
 
   local max_mana = Logic.cur_lu_item( "mana", "limit" )
   local mana = Logic.cur_lu_item( "mana", "count" )
+  local wiz_bonus=skill_power("meditation",1)
+  if wiz_bonus==nil then wiz_bonus=0 end
+
   if mana < max_mana then
-    local skill_bonus = 0
-    local skill_lvl_count = tonumber(Logic.hero_lu_skill("meditation"))
-    if skill_lvl_count > 0 then -- пока не взято умение Медитация, прибавок от умений нет
-      skill_lvl_count = skill_lvl_count + tonumber(Logic.hero_lu_skill("wizdom")) + tonumber(Logic.hero_lu_skill("linguistic")) + tonumber(Logic.hero_lu_skill("meditation")) + tonumber(Logic.hero_lu_skill("order")) + tonumber(Logic.hero_lu_skill("alchemist")) + tonumber(Logic.hero_lu_skill("dist")) + tonumber(Logic.hero_lu_skill("rune")) + tonumber(Logic.hero_lu_skill("transmutate")) + tonumber(Logic.hero_lu_skill("chaos")) + tonumber(Logic.hero_lu_skill("accuracy")) + tonumber(Logic.hero_lu_skill("initiation")) + tonumber(Logic.hero_lu_skill("concentration")) + tonumber(Logic.hero_lu_skill("creator")) + tonumber(Logic.hero_lu_skill("hi_magic")) + tonumber(Logic.hero_lu_skill("destroyer"))
-      skill_bonus = skill_power("meditation", 1) + skill_power("meditation", 3)*skill_lvl_count
-      if skill_bonus == nil then
-        skill_bonus = 0
-      end
-    end
-    mana = mana + skill_bonus/time_period + mana_add
+    mana = mana + wiz_bonus/10 + mana_add
     Logic.cur_lu_item( "mana", "count", mana )
     Game.ClearEffect( "mana" )
   end
 
   return false
-end
 
+end
 
 function restore_mana () --ftag:action
 
@@ -318,7 +303,7 @@ function generation_hero(par) --ftag:action
 
   local rindex=Game.Mutate(table.getn(rune_war)-1)+1 -- индекс начала выдачи рун
   local rside=Game.Mutate(2) -- направление отсчета
-  Logic.hero_lu_var("rindex",rindex)
+    Logic.hero_lu_var("rindex",rindex)
   Logic.hero_lu_var("rside",rside)
 
   local diff = Game.HSP_difficulty()
@@ -339,7 +324,7 @@ function generation_hero(par) --ftag:action
   mana=math.ceil(mana*start_mana)
   rage=math.ceil(rage*start_rage)
   rune_might=math.ceil(rune_might*start_rune_might)
-  rune_mind=math.ceil(rune_mind*start_rune_mind)
+  rune_mind=math.ceil(rune_mind*start_rune_might)
   rune_magic=math.ceil(rune_magic*start_rune_magic)
   book=math.ceil(book*start_book)
 
@@ -398,6 +383,7 @@ function generation_hero(par) --ftag:action
   end
 
   return false
+
 end
 
 -- Повышение уровня героя
@@ -481,21 +467,6 @@ function calc_levelup()
         rindex=1
     end
     Logic.hero_lu_var("rindex",rindex)
-	
-	 ------------------------------------
-    -- корона совершенства
-    local rune_lvl_up_bonus = hero_item_count("sp_levelup_rune_bonus","count")
-    if rune_lvl_up_bonus > 0 then
-      while rune_lvl_up_bonus > 0 do
-        local rnd = Game.Random(100)
-        --if rnd <= 33 t
-        if rnd <= 33 then might = might + 1 end
-        if rnd > 33 and rnd <= 66 then mind = mind + 1 end
-        if rnd > 66 then magic = magic + 1 end
-        rune_lvl_up_bonus = rune_lvl_up_bonus - 1
-      end
-    end
-    ------------------------------------
 
   Levelup.add( 0, "rune_might", might )
   Levelup.add( 0, "rune_mind", mind )
@@ -613,16 +584,4 @@ function hero_companion_compensation () --ftag:action
     Logic.hero_lu_item("money","count", math.floor(gold*(100-k)/100))
     return false
 
-end
-
-function demonis_visited () --ftag:action
-
-  Game.GVNum("demonis_visited", 1)
-  return true;
-
-end
-
-function add_rare_item( name )
-	Game.AddRareItem( name )
-	return true;
 end

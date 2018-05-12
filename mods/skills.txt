@@ -1,0 +1,1700 @@
+0 {
+// group of might
+// раздел ярости
+// контроль ярости
+rage_control {
+    pos=2,0
+    deps=
+    pic=skillicon1_03_
+    name=skill_rage_control_caption
+    hint_header=skill_rage_control
+    hint_text=skill_rage_control_hint
+    script=skill_rage
+    levels {
+
+      1 {
+          deps=
+          runes=9,2,0
+          trade=
+          pars=+8
+        }
+      2 {
+          deps=
+          runes=10,2,0
+          trade=
+          pars=+16
+        }
+      3 {
+          deps=
+          runes=11,2,0
+          trade=
+          pars=+24
+        }
+    }
+  }
+// дрессировка
+traning {
+    pos=2,1
+    deps=rage_control
+    pic=skillicon1_15_
+    name=skill_traning_caption
+    hint_header=skill_traning
+    hint_text=skill_traning_hint
+    script=skill_spirit
+    levels {
+
+      1 {
+          deps=1
+          runes=6,2,0
+          trade=
+          spupskill=1.2
+          pars=20%
+        }
+      2 {
+          deps=1
+          runes=8,2,0
+          trade=
+          spupskill=1.4
+          pars=40%
+        }
+      3 {
+          deps=1
+          runes=10,2,0
+          trade=
+          spupskill=1.6
+          pars=60%
+        }
+    }
+  }
+// гнев
+rage {
+    pos=2,2
+    deps=traning
+    pic=skillicon1_04_
+    name=skill_rage_caption
+    hint_header=skill_rage
+    hint_text=skill_rage_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=8,0,2
+          trade=
+          pars=+20%,1
+        }
+      2 {
+          deps=1
+          runes=9,0,2
+          trade=
+          pars=+40%,2
+        }
+      3 {
+          deps=1
+          runes=11,0,2
+          trade=
+          pars=+60%,3
+        }
+    }
+  }
+// ночные операции
+nightops {
+    pos=1,2
+    deps=rush
+    pic=skillicon1_02_
+    name=skill_nightops_caption
+    hint_header=nightops_control
+    hint_text=skill_nightops_hint
+
+    levels {
+
+      1 {
+          deps=1
+          runes=7,0,0
+          trade=
+          pars=+2
+  fight {
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        ~daytime=night,evening
+      }
+      pbonus=attack,2,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        ~loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=attack,2,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=attack,2,0,0,-100,0,0
+    }
+
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        ~daytime=night,evening
+      }
+      pbonus=defense,2,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        ~loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=defense,2,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=defense,2,0,0,-100,0,0
+    }
+  }
+        }
+      2 {
+          deps=1
+          runes=7,0,0
+          trade=
+          pars=+4
+  fight {
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        ~daytime=night,evening
+      }
+      pbonus=attack,4,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        ~loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=attack,4,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=attack,4,0,0,-100,0,0
+    }
+
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        ~daytime=night,evening
+      }
+      pbonus=defense,4,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        ~loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=defense,4,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=defense,4,0,0,-100,0,0
+    }
+  }
+        }
+      3 {
+          deps=1
+          runes=7,0,0
+          trade=
+          pars=+6
+  fight {
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        ~daytime=night,evening
+      }
+      pbonus=attack,6,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        ~loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=attack,6,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=attack,6,0,0,-100,0,0
+    }
+
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        ~daytime=night,evening
+      }
+      pbonus=defense,6,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        ~loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=defense,6,0,0,-100,0,0
+    }
+    {
+      filter {
+        belligerent=ally
+        loctype=dungeon
+        daytime=night,evening
+      }
+      pbonus=defense,6,0,0,-100,0,0
+    }
+  }
+        }
+    }
+
+  }
+// жажда крови
+blood_lust {
+    pos=2,4
+    deps=dark_force
+    pic=skillicon1_17_
+    name=skill_blood_lust_caption
+    hint_header=skill_blood_lust
+    hint_text=skill_blood_lust_hint
+    script=skill_rush
+    levels {
+
+      1 {
+          deps=1
+          runes=14,0,0
+          trade=
+          pars=15%,+5
+        }
+      2 {
+          deps=1
+          runes=14,0,0
+          trade=
+          pars=25%,+10
+        }
+      3 {
+          deps=1
+          runes=14,0,0
+          trade=
+          pars=40%,+15
+        }
+    }
+  }
+// раздел защиты
+// стойкость
+endurance {
+    pos=1,0
+    deps=
+    script=skill_endurance
+    pic=skillicon1_14_
+    name=skill_endurance_caption
+    hint_header=skill_endurance
+    hint_text=skill_endurance_hint
+    levels {
+
+      1 {
+          deps=
+          runes=4,1,0
+          trade=
+          pars=+1
+        }
+      2 {
+          deps=
+          runes=9,2,0
+          trade=
+          pars=+3
+        }
+      3 {
+          deps=
+          runes=9,2,0
+          trade=
+          pars=+5
+        }
+    }
+  }
+// осторожность
+alertness {
+    pos=1,1
+    deps=endurance
+    script=skill_alertness
+    pic=skillicon1_07_
+    name=skill_alertness_caption
+    hint_header=skill_alertness
+    hint_text=skill_alertness_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=5,1,0
+          trade=
+          pars=0%,+1
+        }
+      2 {
+          deps=1
+          runes=8,2,0
+          trade=
+          pars=15%,+2
+        }
+      3 {
+          deps=1
+          runes=13,3,0
+          trade=
+          pars=30%,+3
+        }
+    }
+  }
+// сила тьмы 
+dark_force {
+    pos=2,3
+    deps=rage,nightops
+    pic=skillicon1_09_
+    name=skill_dark_force_caption
+    hint_header=skill_dark_force
+    hint_text=skill_dark_force_hint
+    levels {
+
+      1 {
+          deps=1,1
+          runes=7,1,1
+          trade=
+          pars=+3
+  fight {
+    {
+      filter {
+        race=undead
+        belligerent=ally
+      }
+      pbonus=attack,3,0,0,-100,0,0
+    }
+  }
+        }
+      2 {
+          deps=1,1
+          runes=7,2,2
+          trade=
+          pars=+5,+1
+  fight {
+    {
+      filter {
+        race=undead
+        belligerent=ally
+      }
+      pbonus=attack,5,0,0,-100,0,0
+    }
+    {
+      filter {
+        race=undead
+        belligerent=ally
+      }
+      pbonus=initiative,1,0,0,-100,0,0
+    }
+  }
+          
+        }
+      3 {
+          deps=1,1
+          runes=7,3,3
+          trade=
+          pars=+7,+2
+  fight {
+    {
+      filter {
+        race=undead
+        belligerent=ally
+      }
+      pbonus=attack,7,0,0,-100,0,0
+    }
+    {
+      filter {
+        race=undead
+        belligerent=ally
+      }
+      pbonus=initiative,2,0,0,-100,0,0
+    }
+  }
+          
+        }
+    }
+  }
+// возмездие
+retribution {
+    pos=1,4
+    deps=nightops,brutality
+    pic=skillicon1_16_
+    name=skill_retribution_caption
+    hint_header=skill_retribution
+    hint_text=skill_retribution_hint
+    levels {
+
+      1 {
+          deps=1,1
+          runes=7,0,0
+          trade=
+          pars=+10%
+        }
+      2 {
+          deps=1,1
+          runes=7,0,0
+          trade=
+          pars=+15%
+        }
+      3 {
+          deps=1,1
+          runes=7,0,0
+          trade=
+          pars=+20%
+        }
+    }
+  }
+// атакующие 
+// героизм
+heroism {
+    pos=0,0
+    deps=
+    pic=skillicon1_13_
+    name=skill_heroism_caption
+    hint_header=skill_heroism
+    script=skill_heroism
+    hint_text=skill_heroism_hint
+    levels {
+
+      1 {
+          deps=
+          runes=4,1,0
+          trade=
+          pars=+1
+        }
+      2 {
+          deps=
+          runes=9,2,0
+          trade=
+          pars=+3
+        }
+      3 {
+          deps=
+          runes=13,3,0
+          trade=
+          pars=+6
+        }
+    }
+  }
+// натиск
+ rush {
+    pos=0,1
+    deps=heroism
+    script=skill_rush
+    pic=skillicon1_10_
+    name=skill_rush_caption
+    hint_header=skill_rush
+    hint_text=skill_rush_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=10,1,0
+          trade=
+          pars=+1,+5
+        }
+      2 {
+          deps=1
+          runes=10,2,0
+          trade=
+          pars=+2,+8
+        }
+      3 {
+          deps=1
+          runes=10,3,0
+          trade=
+          pars=+3,+10
+        }
+    }
+  }
+//быстрая  стрельба
+fast_fire {
+    pos=0,2
+    deps=rush
+    pic=skillicon1_06_
+    name=skill_fast_fire_caption
+    hint_header=skill_fast_fire
+    hint_text=skill_fast_fire_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=8,1,0
+          trade=
+          pars=+1,+3
+  fight {
+    {
+      filter {
+        belligerent=ally
+        unit=archer,bowman,cannoner,catapult,elf,elf2,goblin,thorn,beholder2,beholder,kingthorn,alchemist,droideka,cyclop
+      }
+      pbonus=attack,3,0,0,-100,0,0
+      dbonus=
+      rbonus=
+      attack_on=
+      attack_off=
+    }
+    {
+      filter {
+        belligerent=ally
+        unit=archer,bowman,cannoner,catapult,elf,elf2,goblin,thorn,beholder2,beholder,kingthorn,alchemist,droideka,cyclop
+      }
+      pbonus=initiative,1,0,0,-100,0,0
+      dbonus=
+      rbonus=
+      attack_on=
+      attack_off=
+    }
+  }
+
+          
+        }
+      2 {
+          deps=1
+          runes=9,2,0
+          trade=
+          pars=+2,+5
+  fight {
+    {
+      filter {
+        belligerent=ally
+        unit=archer,bowman,cannoner,catapult,elf,elf2,goblin,thorn,beholder2,beholder,kingthorn,alchemist,droideka,cyclop
+      }
+      pbonus=attack,5,0,0,-100,0,0
+      dbonus=
+      rbonus=
+      attack_on=
+      attack_off=
+    }
+    {
+      filter {
+        belligerent=ally
+        unit=archer,bowman,cannoner,catapult,elf,elf2,goblin,thorn,beholder2,beholder,kingthorn,alchemist,droideka,cyclop
+      }
+      pbonus=initiative,2,0,0,-100,0,0
+      dbonus=
+      rbonus=
+      attack_on=
+      attack_off=
+    }
+  }
+          
+        }
+      3 {
+          deps=1
+          runes=10,3,0
+          trade=
+          pars=+3,+7
+  fight {
+    {
+      filter {
+        belligerent=ally
+        unit=archer,bowman,cannoner,catapult,elf,elf2,goblin,thorn,beholder2,beholder,kingthorn,alchemist,droideka,cyclop
+      }
+      pbonus=attack,7,0,0,-100,0,0
+      dbonus=
+      rbonus=
+      attack_on=
+      attack_off=
+    }
+    {
+      filter {
+        belligerent=ally
+        unit=archer,bowman,cannoner,catapult,elf,elf2,goblin,thorn,beholder2,beholder,kingthorn,alchemist,droideka,cyclop
+      }
+      pbonus=initiative,3,0,0,-100,0,0
+      dbonus=
+      rbonus=
+      attack_on=
+      attack_off=
+    }
+  }
+          
+        }
+    }
+  }
+// неистовство
+brutality {
+    pos=0,3
+    deps=fast_fire
+    pic=skillicon1_05_
+    name=skill_brutality_caption
+    hint_header=skill_brutality
+    hint_text=skill_brutality_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=5,2,0
+          trade=
+          pars=+2
+        }
+      2 {
+          deps=1
+          runes=7,2,0
+          trade=
+          pars=+4
+        }
+      3 {
+          deps=1
+          runes=10,2,0
+          trade=
+          pars=+6
+        }
+    }
+  }
+// тактика
+tactics {
+    pos=0,4
+    deps=brutality
+    pic=skillicon1_01_
+    name=skill_tactics_caption
+    hint_header=skill_tactics
+    hint_text=skill_tactics_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=12,0,0
+          trade=
+          pars=1
+        }
+      2 {
+          deps=1
+          runes=16,0,0
+          trade=
+          pars=2
+        }
+    }
+  }
+
+}
+
+1 {
+  // Паладин PALADIN 
+// разведка
+explorer {
+    pos=0,0
+    deps=
+    script=skill_explorer
+    pic=skillicon2_01_
+    name=skill_explorer_caption
+    hint_header=skill_explorer
+    hint_text=skill_explorer_hint
+    levels {
+
+      1 {
+          deps=
+          runes=0,2,0
+          trade=
+          pars=+1
+        }
+      2 {
+          deps=
+          runes=0,3,1
+          trade=
+          pars=+2
+        }
+      3 {
+          deps=
+          runes=0,4,2
+          trade=
+          pars=+3
+        }
+    }
+  }
+// обучение
+learning {
+    pos=0,2
+    deps=trophy
+    pic=skillicon2_05_
+    script=skill_learning
+    name=skill_learning_caption
+    hint_header=skill_learning
+    hint_text=skill_learning_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=1,11,1
+          trade=
+          pars=+10%,+1
+        }
+      2 {
+          deps=1
+          runes=1,11,1
+          trade=
+          pars=+15%,+2
+        }
+      3 {
+          deps=1
+          runes=1,11,1
+          trade=
+          pars=+20%,+3
+        }
+    }
+  }
+// трофеи 
+trophy {
+    pos=0,1
+    deps=explorer
+    pic=skillicon2_10_
+    name=skill_trophy_caption
+    hint_header=skill_trophy
+    hint_text=skill_trophy_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,5,1
+          trade=
+          pars=10%
+        }
+      2 {
+          deps=1
+          runes=0,5,1
+          trade=
+          pars=20%
+        }
+      3 {
+          deps=1
+          runes=0,5,1
+          trade=
+          pars=30%
+        }
+    }
+}
+// аккуратность 
+accuracy {
+    pos=0,3
+    deps=learning
+    script=skill_accuracy
+    pic=skillicon2_16_
+    name=skill_accuracy_caption
+    hint_header=skill_accuracy_caption
+    hint_text=skill_accuracy_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,7,1
+          trade=
+          pars=3,+2
+        }
+      2 {
+          deps=1
+          runes=0,9,2
+          trade=
+          pars=4,+4
+        }
+      3 {
+          deps=1
+          runes=0,11,3
+          trade=
+          pars=5,+6
+        }
+    }
+ }
+// абсолютный баланс 
+equilibrium {
+    pos=0,4
+    deps=accuracy
+    script=skill_equilibrium
+    pic=skillicon2_18_
+    name=skill_equilibrium_caption
+    hint_header=skill_equilibrium
+    hint_text=skill_equilibrium_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=1,8,1
+          trade=
+          pars=+4
+        }
+      2 {
+          deps=1
+          runes=1,10,1
+          trade=
+          pars=+8
+        }
+      3 {
+          deps=1
+          runes=1,12,1
+          trade=
+          pars=+12
+        }
+    }
+ }
+
+// слава 
+glory {
+    pos=2,0
+    deps=
+    pic=skillicon2_06_
+    script=skill_glory
+    name=skill_glory_caption
+    hint_header=skill_glory
+    hint_text=skill_glory_hint
+    levels {
+
+      1 {
+          deps=
+          runes=1,6,0
+          trade=
+          pars=+100
+        }
+      2 {
+          deps=
+          runes=2,7,0
+          trade=
+          pars=+350
+        }
+      3 {
+          deps=
+          runes=3,8,0
+          trade=
+          pars=+700
+        }
+    }
+  }
+// сила духа 
+spirit_power {
+    pos=2,1
+    deps=glory
+    pic=skillicon2_14_
+    script=skill_spirit_power
+    name=skill_spirit_power_caption
+    hint_header=skill_spirit_power
+    hint_text=skill_spirit_power_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=3,8,0
+          trade=
+          pars=+1
+        }
+      2 {
+          deps=1
+          runes=3,8,0
+          trade=
+          pars=+2
+        }
+      3 {
+          deps=1
+          runes=3,8,0
+          trade=
+          pars=+3
+        }
+    }
+  }
+//воодушевление 
+adrenalin {
+    pos=2,2
+    deps=spirit_power
+    pic=skillicon2_15_
+    name=skill_adrenalin_caption
+    hint_header=skill_adrenalin
+    hint_text=skill_adrenalin_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=2,7,0
+          trade=
+          pars=+1,0
+        }
+      2 {
+          deps=1
+          runes=2,8,0
+          trade=
+          pars=+1,+1
+        }
+      3 {
+          deps=1
+          runes=2,9,0
+          trade=
+          pars=+2,+2
+        }
+    }
+  }
+//дипломатия 
+diplomacy {
+    pos=2,3
+    deps=adrenalin
+    pic=skillicon2_03_
+    name=skill_diplomacy_caption
+    hint_header=skill_diplomacy
+    hint_text=skill_diplomacy_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=2,9,0
+          trade=
+          pars=8%
+        }
+      2 {
+          deps=1
+          runes=2,8,0
+          trade=
+          pars=12%
+        }
+      3 {
+          deps=1
+          runes=2,7,0
+          trade=
+          pars=16%
+        }
+    }
+  }
+//голос дракона  
+dragon_voice {
+    pos=2,4
+    deps=diplomacy,belief
+    script=skill_dragon_voice
+    pic=skillicon2_20_
+    name=skill_dragon_voice_caption
+    hint_header=skill_dragon_voice
+    hint_text=skill_dragon_voice_hint
+    levels {
+      1 {
+          deps=1,1
+          runes=0,9,1
+          trade=
+          pars=+1,0,+2
+  fight {
+    {
+      filter {
+        belligerent=ally
+        unit=bear,bear2,bear_white,dragonfly_fire,dragonfly_lake,graywolf,griffin,griffin2,hyena,snake,snake_green,snake_royal,unicorn,unicorn2,wolf
+      }
+      pbonus=moral,1,0,0,-100,0,0
+    }
+  }
+          
+        }
+      2 {
+          deps=1,1
+          runes=0,10,1
+          trade=
+          pars=+2,0,+4
+  fight {
+    {
+      filter {
+        belligerent=ally
+        unit=bear,bear2,bear_white,dragonfly_fire,dragonfly_lake,graywolf,griffin,griffin2,hyena,snake,snake_green,snake_royal,unicorn,unicorn2,wolf
+      }
+      pbonus=moral,2,0,0,-100,0,0
+    }
+  }
+        }
+      3 {
+          deps=1,1
+          runes=2,11,1
+          trade=
+          pars=+2,+2,+6
+  fight {
+    {
+      filter {
+        belligerent=ally
+        unit=bear,bear2,bear_white,dragonfly_fire,dragonfly_lake,graywolf,griffin,griffin2,hyena,snake,snake_green,snake_royal,unicorn,unicorn2,wolf,bonedragon,blackdragon,greendragon,reddragon
+      }
+      pbonus=moral,2,0,0,-100,0,0
+    }
+  }
+          
+        }
+    }
+  }
+// святой гнев
+holy_rage {
+    pos=1,0
+    deps=
+    pic=skillicon2_07_
+    name=skill_holy_rage_caption
+    hint_header=skill_holy_rage
+    hint_text=skill_holy_rage_hint
+    levels {
+
+      1 {
+          deps=
+          runes=1,7,1
+          trade=
+          pars=-5,+1
+  fight {
+    {
+      filter {
+        belligerent=enemy
+        race=undead,demon
+      }
+      pbonus=defense,-5,0,0,-100,0,0
+    }
+  }          
+        }
+      2 {
+          deps=
+          runes=1,7,1
+          trade=
+          pars=-10,+2
+  fight {
+    {
+      filter {
+        belligerent=enemy
+        race=undead,demon
+      }
+      pbonus=defense,-10,0,0,-100,0,0
+    }
+  }          
+  			}
+      3 {
+          deps=
+          runes=1,7,1
+          trade=
+          pars=-15,+3
+  fight {
+    {
+      filter {
+        belligerent=enemy
+        race=undead,demon
+      }
+      pbonus=defense,-15,0,0,-100,0,0
+    }
+  }          
+          
+        }
+    }
+  }
+// Молитва 
+prayer {
+    pos=1,1
+    deps=holy_rage
+    pic=skillicon2_13_
+    name=skill_prayer_caption
+    hint_header=skill_prayer
+    hint_text=skill_prayer_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,10,0
+          trade=
+          pars=+3%
+  fight {
+    {
+      filter {
+        belligerent=ally
+      }
+      pbonus=krit,3,0,0,-100,0,0
+    }
+  }
+          
+        }
+      2 {
+          deps=1
+          runes=0,12,0
+          trade=
+          pars=+7%
+  fight {
+    {
+      filter {
+        belligerent=ally
+      }
+      pbonus=krit,7,0,0,-100,0,0
+    }
+  }
+          
+        }
+      3 {
+          deps=1
+          runes=0,14,0
+          trade=
+          pars=+10%
+  fight {
+    {
+      filter {
+        belligerent=ally
+      }
+      pbonus=krit,10,0,0,-100,0,0
+    }
+  }
+          
+        }
+    }
+  }
+// убеждение
+belief {
+    pos=1,3
+    deps=prayer,learning
+    pic=skillicon2_17_
+    name=skill_belief_caption
+    hint_header=skill_belief
+    hint_text=skill_belief_hint
+    levels {
+
+      1 {
+          deps=1,1
+          runes=1,12,1
+          trade=
+          pars=+1
+  fight {
+    {
+      filter {
+        belligerent=ally
+        race=human,elf
+        ~unit=droideka,droideka_guard
+      }
+      pbonus=moral,1,0,0,-100,0,0
+    }
+  }
+          
+        }
+      2 {
+          deps=1,1
+          runes=1,10,1
+          trade=
+          pars=+1
+  fight {
+    {
+      filter {
+        belligerent=ally
+        race=human,elf,dwarf,orc
+        ~unit=droideka,droideka_guard
+      }
+      pbonus=moral,1,0,0,-100,0,0
+    }
+  }
+          
+        }
+      3 {
+          deps=1,1
+          runes=1,8,1
+          trade=
+          pars=+1
+  fight {
+    {
+      filter {
+        belligerent=ally
+        race=human,elf,dwarf,orc,demon,lizard
+        ~unit=droideka,droideka_guard
+      }
+      pbonus=moral,1,0,0,-100,0,0
+    }
+  }
+          
+        }
+    }
+  }
+// воскрешение
+resurrection {
+    pos=1,4
+    deps=belief
+    pic=skillicon2_19_
+    name=skill_resurrection_caption
+    hint_header=skill_resurrection
+    hint_text=skill_resurrection_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,12,0
+          trade=
+          pars=60%,+10%
+        }
+      2 {
+          deps=1
+          runes=0,14,0
+          trade=
+          pars=80%,+20%
+        }
+      3 {
+          deps=1
+          runes=0,16,0
+          trade=
+          pars=100%,+30%
+        }
+    }
+  }
+
+}
+
+// Маг
+
+2 {
+  // group of magic
+// мудрость
+wizdom {
+    pos=0,0
+    deps=
+    pic=skillicon3_04_
+    script=skill_wizdom
+    name=skill_wizdom_caption
+    hint_header=skill_wizdom
+    hint_text=skill_wizdom_hint
+    levels {
+
+      1 {
+          deps=
+          runes=0,0,9
+          trade=
+          pars=+6,+3
+        }
+      2 {
+          deps=
+          runes=0,0,10
+          trade=
+          pars=+12,+6
+        }
+      3 {
+          deps=
+          runes=0,0,11
+          trade=
+          pars=+18,+9
+        }
+    }
+  }
+// порядок 
+order {
+    pos=0,1
+    deps=wizdom,linguistic
+    pic=skillicon3_01_
+    name=skill_order_caption
+    hint_header=skill_order
+    hint_text=skill_order_hint
+    levels {
+
+      1 {
+          deps=1,1
+          runes=0,4,4
+          trade=
+          pars=
+          msl=1,1       // format: msl=school,_max_spell_level
+        }
+      2 {
+          deps=1,1
+          runes=0,6,6
+          trade=
+          pars=
+          msl=1,2
+        }
+      3 {
+          deps=1,1
+          runes=0,9,9
+          trade=
+          pars=
+          msl=1,3
+        }
+    }
+  }
+// Магия Света
+healer {
+    pos=0,2
+    deps=order
+    pic=skillicon3_09_
+    name=skill_healer_caption
+    hint_header=skill_healer
+    hint_text=skill_healer_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,4,5
+          trade=
+          pars=+15%
+        }
+      2 {
+          deps=1
+          runes=0,4,5
+          trade=
+          pars=+20%
+        }
+      3 {
+          deps=1
+          runes=0,4,5
+          trade=
+          pars=+25%
+        }
+    }
+  }
+// медитация
+meditation {
+    pos=0,3
+    deps=healer
+    pic=skillicon3_05_
+    script=skill_meditation
+    name=skill_meditation_caption
+    hint_header=skill_meditation
+    hint_text=skill_meditation_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,0,8
+          trade=
+          pars=+30%,+4
+        }
+      2 {
+          deps=1
+          runes=0,0,9
+          trade=
+          pars=+60%,+8
+        }
+      3 {
+          deps=1
+          runes=0,0,10
+          trade=
+          pars=+100%,+12
+        }
+    }
+  }
+//концентрация
+concentration {
+    pos=0,4
+    deps=meditation
+    pic=skillicon3_06_
+    name=skill_concentration_caption
+    hint_header=skill_concentration
+    hint_text=skill_concentration_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,1,8
+          trade=
+          pars=2
+        }
+      2 {
+          deps=1
+          runes=0,1,8
+          trade=
+          pars=4
+        }
+      3 {
+          deps=1
+          runes=0,2,16
+          trade=
+          pars=8
+        }
+    }
+  }
+ 
+// языкознание
+linguistic {
+    pos=1,0
+    deps=
+    pic=skillicon3_13_
+    script=skill_linguistic
+    name=skill_linguistic_caption
+    hint_header=skill_linguistic
+    hint_text=skill_linguistic_hint
+    levels {
+
+      1 {
+          deps=
+          runes=0,1,4
+          trade=
+          pars=+1
+        }
+      2 {
+          deps=
+          runes=0,2,8
+          trade=
+          pars=+3
+        }
+      3 {
+          deps=
+          runes=0,3,12
+          trade=
+          pars=+6
+        }
+    }
+  }
+// искажение 
+dist {
+    pos=2,1
+    deps=linguistic
+    pic=skillicon3_02_
+    name=skill_dist_caption
+    hint_header=skill_dist
+    hint_text=skill_dist_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=2,2,5
+          trade=
+          pars=
+          msl=2,1
+        }
+      2 {
+          deps=1
+          runes=3,3,7
+          trade=
+          pars=
+          msl=2,2
+        }
+      3 {
+          deps=1
+          runes=5,5,9
+          trade=
+          pars=
+          msl=2,3
+        }
+    }
+  }
+// трансмутация 
+transmutate {
+    pos=1,2
+    script=
+    deps=dist,order
+    pic=skillicon3_14_
+    name=skill_transmutate_caption
+    hint_header=skill_transmutate
+    hint_text=skill_transmutate_hint
+    levels {
+
+
+      1 {
+          deps=1,1
+          runes=4,0,9
+          trade=
+          pars=+4
+        }
+      2 {
+          deps=1,1
+          runes=4,0,9
+          trade=
+          pars=+7
+        }
+      3 {
+          deps=1,1
+          runes=4,0,9
+          trade=
+          pars=+10
+        }
+    }
+  }
+// призыв
+summonner {
+    pos=1,3
+    deps=transmutate
+    pic=skillicon3_15_
+    name=skill_summonner_caption
+    hint_header=skill_summonner
+    hint_text=skill_summonner_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,1,8
+          trade=
+          pars=+15%
+        }
+      2 {
+          deps=1
+          runes=0,2,9
+          trade=
+          pars=+30%
+        }
+      3 {
+          deps=1
+          runes=0,3,10
+          trade=
+          pars=+50%
+        }
+    }
+  }
+// диссертация  
+dissertation {
+    pos=1,4
+    dissertation
+    script=skill_dissertation
+    deps=destroyer,meditation
+    pic=skillicon3_16_
+    name=skill_dissertation_caption
+    hint_header=skill_dissertation
+    hint_text=skill_dissertation_hint
+    levels {
+
+      1 {
+          deps=1,1
+          runes=1,2,13
+          trade=
+          pars=+2,+7
+        }
+      2 {
+          deps=1,1
+          runes=1,2,13
+          trade=
+          pars=+4,+14
+        }
+      3 {
+          deps=1,1
+          runes=1,2,13
+          trade=
+          pars=+6,+21
+        }
+    }
+  }  
+
+// алхимия
+alchemist {
+    pos=2,0
+    deps=
+    pic=skillicon3_07_
+    name=skill_alchemist_caption
+    hint_header=skill_alchemist
+    hint_text=skill_alchemist_hint
+    levels {
+
+      1 {
+          deps=
+          runes=0,1,5
+          trade=
+          pars=15
+        }
+      2 {
+          deps=
+          runes=0,1,5
+          trade=
+          pars=30
+        }
+      3 {
+          deps=
+          runes=0,1,5
+          trade=
+          pars=50
+        }
+    }
+  }
+// хаос 
+chaos {
+    pos=2,2
+    deps=dist
+    pic=skillicon3_03_
+    name=skill_chaos_caption
+    hint_header=skill_chaos
+    hint_text=skill_chaos_hint
+    levels {
+
+
+      1 {
+          deps=1
+          runes=3,0,7
+          trade=
+          pars=
+          msl=3,1
+        }
+      2 {
+          deps=1
+          runes=5,0,9
+          trade=
+          pars=
+          msl=3,2
+        }
+      3 {
+          deps=1
+          runes=7,0,13
+          trade=
+          pars=
+          msl=3,3
+        }
+    }
+  }
+// разрущитель
+destroyer {
+    pos=2,3
+    deps=chaos
+    pic=skillicon3_08_
+    name=skill_destroyer_caption
+    hint_header=skill_destroyer
+    hint_text=skill_destroyer_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=2,0,8
+          trade=
+          pars=+15%
+        }
+      2 {
+          deps=1
+          runes=3,0,9
+          trade=
+          pars=+30%
+        }
+      3 {
+          deps=1
+          runes=4,0,10
+          trade=
+          pars=+50%
+        }
+    }
+  }
+// высшая магия
+hi_magic {
+    pos=2,4
+    deps=destroyer
+    pic=skillicon3_12_
+    name=skill_hi_magic_caption
+    hint_header=skill_hi_magic
+    hint_text=skill_hi_magic_hint
+    levels {
+
+      1 {
+          deps=1
+          runes=0,0,12
+          trade=
+          pars=2,10
+        }
+      2 {
+          deps=1
+          runes=0,0,14
+          trade=
+          pars=4,15
+        }
+      3 {
+          deps=1
+          runes=0,0,16
+          trade=
+          pars=6,20
+        }
+    }
+  }
+
+}

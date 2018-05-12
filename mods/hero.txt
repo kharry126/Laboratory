@@ -115,7 +115,7 @@ hero_warrior { // ******************** ¬оин ********************
         book=6
         // стартовые умени€ изученные и недоступные
         skills_open=rage_control //heroism, rage,traning //order,chaos,dist
-        skills_off=hi_magic,resurrection,megamage,contrstrike,holy_armor
+        skills_on=hi_magic,resurrection,megamage,contrstrike,holy_armor
         army=bowman|3|footman|5|bear|2
         spells {
           spell_haste=-1
@@ -165,7 +165,7 @@ hero_paladin { // ******************** ѕаладин ********************
         crystals=10
         // стартовые умени€ изученные и недоступные
         skills_open=explorer //explorer,wizdom,glory,endurance,heroism,rage_control,traning,linguistic,order,chaos,dist,rage
-        skills_off=blood_lust,hi_magic,megamage,contrstrike,holy_armor
+        skills_on=blood_lust,hi_magic,megamage,contrstrike,holy_armor
         //army=gorguana|50|blackdragon|20|griffin2|5|griffin_spirit|12|paladin|15
 	    army=footman|4|peasant|28|bowman|2
 
@@ -219,7 +219,7 @@ hero_mage { // ******************** ћаг ********************
         book=10
         // стартовые умени€ изученные и недоступные
         skills_open=wizdom //rage,wizdom,meditation //chaos, alchemist
-        skills_off=blood_lust,resurrection,megamage,contrstrike,holy_armor
+        skills_on=blood_lust,resurrection,megamage,contrstrike,holy_armor
         army=sprite|11|peasant|20|dragonfly_lake|11
         spells {
             spell_fire_arrow=1

@@ -159,7 +159,26 @@ function change_manarage (event) --ftag:action
 
   Logic.cur_lu_item( "rage", "count", math.max(rage, rage_min) )
   Game.ClearEffect( "rage" )
+---------------------------------------------------------------  
+--------  Добавление предметов в инвентарь --------------------
+---------------------------------------------------------------
+    if Game.GVNum ("item_given_talant_collector")~=1 then
+--     Logic.hero_add_item("talant_collector")
+--     Logic.hero_add_item("battle_akademy_doc") 
+     Game.GVNum ("talant_collector_count",0)
+     Game.GVNum ("talant_collector_race_human",1)
+     Game.GVNum ("talant_collector_race_neutral",1)
+     Game.GVNum ("talant_collector_race_elf",0)
+     Game.GVNum ("talant_collector_race_dwarf",0)
+     Game.GVNum ("talant_collector_race_undead",0)
+     Game.GVNum ("talant_collector_race_demon",0)
+     Game.GVNum ("talant_collector_race_orc",0)
+     Game.GVNum ("talant_collector_race_lizard",0)
+     Game.GVNum ("talant_collector_army_level",2)
+     Game.GVNum ("item_given_talant_collector",1)
+    end
 
+---------- Окончание добавления ------------------------------ 
   return false
 
 end
@@ -266,9 +285,9 @@ function add_hero_item(path, itemname, countpar)
   return true
 end
 
-rune_war={"6,4,2","5,5,2","6,3,3","7,4,1"}
-rune_pal={"3,6,3","2,7,3","3,5,4","4,6,2"}
-rune_mag={"2,4,6","1,5,6","2,3,7","3,4,5"}
+rune_war={"10,10,10","10,10,10","10,10,10","10,10,10"}
+rune_pal={"10,10,10","10,10,10","10,10,10","10,10,10"}
+rune_mag={"10,10,10","10,10,10","10,10,10","10,10,10"}
 
 function generation_hero(par) --ftag:action
 
@@ -324,7 +343,7 @@ function generation_hero(par) --ftag:action
   mana=math.ceil(mana*start_mana)
   rage=math.ceil(rage*start_rage)
   rune_might=math.ceil(rune_might*start_rune_might)
-  rune_mind=math.ceil(rune_mind*start_rune_might)
+  rune_mind=math.ceil(rune_mind*start_rune_mind)
   rune_magic=math.ceil(rune_magic*start_rune_magic)
   book=math.ceil(book*start_book)
 

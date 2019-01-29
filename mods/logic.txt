@@ -20,6 +20,7 @@ exp_from_lead_k=0.017 //0.016
 // Коэффициент компенсации для изгнанного спутника - сколько % золота он забирает
 companion_gold_k=20 //20% золота забирает
 
+
 // Коэффициенты для покупки/продажи
 default_buy_coeff=0
 default_sell_coeff=0.25
@@ -44,48 +45,39 @@ compensation_after_limit_reached=0.2 // последующие возвращения
 diffmap_to_kmoneyarmy=3.5 //3.5
 
 // Расы, Сопротивления, Особенности юнитов
-races=human,elf,orc,dwarf,undead,demon,neutral,lizard,viking,lizardead,ice_elf
-resistances=physical,poison,magic,fire,glacial,astral
-features=armor,shot,mage,undead,eyeless,demon,dragon,plant,mind_immunitet,fire_immunitet,magic_immunitet,poison_immunitet,freeze_immunitet,holy,bone,golem,humanoid,beast,beauty,nonecro,barrier,archer,boss,pawn,orb,mech,revengeful,agility,care,night_vision,positive_debuff,penalty_debuffer,ice_creature,zlogn_creature,devatron,multy_eye,handler,summoned_creature,special_attacks,swift,flying,light_step,ghost,rune_knowledge,mind_games_immunitet
+races=human,elf,orc,dwarf,undead,demon,neutral,lizard
+resistances=physical,poison,magic,fire,astral
+features=armor,shot,mage,undead,eyeless,demon,dragon,plant,mind_immunitet,fire_immunitet,magic_immunitet,poison_immunitet,freeze_immunitet,holy,bone,golem,humanoid,beast,beauty,nonecro,barrier,archer,boss,pawn,orb,mech,revengeful,agility,care,night_vision,autodebuff
 
-// Коэф-т прироста маны, когда ярость = 0
+//Коэф-т прироста маны, когда ярость = 0
 mana_gain_k_when_no_rage=3
-
-// Настройка бонусов рун
-unit_rune_params {
-   duration=-100
-   power_mod=elf=50%,dwarf=50%,human=50%,viking=100%,neutral=50%,orc=50%,lizard=50%,demon=50%,undead=50%,lizardead=50%,ice_elf=50%
-   rune1=attack=20%,krit=16%
-   rune2=defense=20%,health=16%
-   rune3=chance=30
-   nfeatures=pawn,boss,magic_immunitet
-}
-
 
 // Настройки сложности игры
 difficulty_k {
-   exp=0.5|1.0|1.30|1.7   // коэф. растяжения таблицы опыта героя
-   alead=0.5|1.0|1.30|1.7   // коэф. лидерства врага
-   spexp=0.5|1.0|1.15|1.3   // коэф. растяжения таблицы опыта духов ярости
-   money=2.5|0.8|0.65|0.5   // коэф. полученных денег
-   rage=2.0|1.0|0.85|0.7   // коэф. прихода ярости в бою
-   manarage=2.0|1.0|0.80|0.5   // коэф. прихода маны на карте, а для ярости скорости падения
 
-   start_gold=5.0|1.0|1.00|1.0   // начальный коэф. золота
-   start_crystals=5.0|1.0|1.00|1.0   // начальный коэф. кристаллов
-   start_mana=2.0|1.0|1.00|1.0   // начальный коэф. маны
-   start_rage=2.0|1.0|1.00|1.0   // начальный коэф. ярости
-   start_rune_might=3.0|1.0|1.00|1.0   // начальный коэф. рун силы
-   start_rune_mind=3.0|1.0|1.00|1.0   // начальный коэф. рун духа
-   start_rune_magic=3.0|1.0|1.00|1.0   // начальный коэф. рун магии
-   start_book=3.0|1.0|1.00|1.0   // начальный коэф. размер книги
+      exp=0.5|1.0|1.30|1.7   // коэф. растяжения таблицы опыта героя
+    alead=0.7|1.1|1.5|2.0   // коэф. лидерства врага
+    spexp=0.5|1.0|1.15|1.3   // коэф. растяжения таблицы опыта духов ярости
+    money=3.0|1.0|0.7|0.5   // коэф. полученных денег
+     rage=2.0|1.0|0.85|0.7   // коэф. прихода ярости в бою
+ manarage=2.0|1.0|0.80|0.5   // коэф. прихода маны на карте, а для ярости скорости падения
 
-   bossatk=1.0|1.0|1.4|1.7   // коэф. атаки босса
+	    start_gold=5.0|1.0|1.00|1.0   // начальный коэф. золота
+	start_crystals=5.0|1.0|1.00|1.0   // начальный коэф. кристаллов
+	    start_mana=2.0|1.0|1.00|1.0   // начальный коэф. маны
+	    start_rage=2.0|1.0|1.00|1.0   // начальный коэф. ярости
+    start_rune_might=3.0|1.0|1.00|1.0   // начальный коэф. рун силы
+     start_rune_mind=3.0|1.0|1.00|1.0   // начальный коэф. рун духа
+    start_rune_magic=3.0|1.0|1.00|1.0   // начальный коэф. рун магии
+	    start_book=3.0|1.0|1.00|1.0   // начальный коэф. размер книги
+
+  bossatk=1.0|1.0|1.4|1.7   // коэф. атаки босса
    bosshp=1.0|1.0|1.4|2.0   // коэф. жизни босса
 
-   deadmoney=3.0|2.0|1.7|1.5   // коэф. полученных денег за потери в бою
+deadmoney=3.0|2.0|1.7|1.5   // коэф. полученных денег за потери в бою
 
-   boxradar= 1 | 1 | 0 | 0    // добряки на радаре
+ boxradar= 1 | 1 | 1 | 1    // добряки на радаре
+
 }
 
 // DefaultParam Mini, Small, Average, Big, Huge - коэффициенты для настройки эмбрионов
@@ -138,7 +130,7 @@ difficulty {
 
   10 { // Difficulty 0..10%
 
-    k_money=1 //1
+    k_money=2 //1
     k_lead=1
     k_exp=1
     k_mana=1
@@ -149,7 +141,7 @@ difficulty {
 
   20 { // Difficulty 11..20%
 
-    k_money=2 // 2
+    k_money=3 // 2
     k_lead=1 //1.5
     k_exp=2 //1.5
     k_mana=1.5
@@ -160,7 +152,7 @@ difficulty {
 
  30 {
 
-    k_money=4 //4
+    k_money=5 //4
     k_lead=2
     k_exp=3 //2
     k_mana=2
@@ -170,7 +162,7 @@ difficulty {
   }
 
  40 {
-    k_money=6 //8
+    k_money=8 //8
     k_lead=2.5
     k_exp=5
     k_mana=2.4
@@ -181,7 +173,7 @@ difficulty {
 
  50 {
 
-    k_money=8 //14
+    k_money=12 //14
     k_lead=3
     k_exp=10
     k_mana=2.7
@@ -192,7 +184,7 @@ difficulty {
 
  60 {
 
-    k_money=12 //20
+    k_money=16 //20
     k_lead=3.5
     k_exp=20
     k_mana=3
@@ -203,7 +195,7 @@ difficulty {
 
  70 {
 
-    k_money=16 //25
+    k_money=20 //25
     k_lead=4
     k_exp=40
     k_mana=3.5
@@ -214,7 +206,7 @@ difficulty {
 
  80 {
 
-    k_money=20 //30
+    k_money=24 //30
     k_lead=4.5
     k_exp=60
     k_mana=4
@@ -225,7 +217,7 @@ difficulty {
 
  90 {
 
-    k_money=24 //40
+    k_money=28 //40
     k_lead=5
     k_exp=80
     k_mana=4.5
@@ -236,7 +228,7 @@ difficulty {
 
  100 {
 
-    k_money=28 //50
+    k_money=32 //50
     k_lead=5
     k_exp=100
     k_mana=5

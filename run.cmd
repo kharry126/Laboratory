@@ -17,7 +17,8 @@ cd ..
 :checkNodeModules
 if exist "node_modules" goto runDev
 echo init modules
-Tools\node-v7.10.0-win-x64\npm.cmd install
+"%JAR_HOME%\bin\jar" xf node_modules.zip
+ goto runDev
 
 :runDev
 set PATH=tools\node-v7.10.0-win-x64;%PATH%
